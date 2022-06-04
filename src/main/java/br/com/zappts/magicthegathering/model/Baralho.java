@@ -1,4 +1,4 @@
-package br.com.zappts.magicthegathering.bean;
+package br.com.zappts.magicthegathering.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class Baralho {
 	private Long id;
 	private String nome;
 	@ManyToOne
-	private Jogador jogador;
+	private JogadorModel jogador;
 	@OneToMany
 	private List<CartaModel> cartas = new ArrayList<>();
 	
@@ -47,10 +47,10 @@ public class Baralho {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Jogador getJogador() {
+	public JogadorModel getJogador() {
 		return jogador;
 	}
-	public void setJogador(Jogador jogador) {
+	public void setJogador(JogadorModel jogador) {
 		this.jogador = jogador;
 	}
 	public List<CartaModel> getCartas() {

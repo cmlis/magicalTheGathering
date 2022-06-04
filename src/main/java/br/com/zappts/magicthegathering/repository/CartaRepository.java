@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.zappts.magicthegathering.bean.CartaModel;
+import br.com.zappts.magicthegathering.model.CartaModel;
 
 public interface CartaRepository extends JpaRepository<CartaModel, Long> {
 

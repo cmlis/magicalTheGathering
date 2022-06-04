@@ -1,20 +1,24 @@
-package br.com.zappts.magicthegathering.bean;
+package br.com.zappts.magicthegathering.model;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-public class Jogador {
+@Table(name="TB_JOGADOR")
+public class JogadorModel {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column (nullable = false, length = 15)
 	private String nome;
 	
 	@OneToMany(mappedBy = "jogador")
@@ -33,7 +37,7 @@ public class Jogador {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Jogador other = (Jogador) obj;
+		JogadorModel other = (JogadorModel) obj;
 		return Objects.equals(baralhos, other.baralhos) && Objects.equals(id, other.id)
 				&& Objects.equals(nome, other.nome);
 	}

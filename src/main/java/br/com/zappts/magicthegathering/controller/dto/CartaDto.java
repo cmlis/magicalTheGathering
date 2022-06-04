@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import br.com.zappts.magicthegathering.bean.CartaModel;
+import br.com.zappts.magicthegathering.model.CartaModel;
 
 public class CartaDto {
 	
