@@ -59,13 +59,6 @@ public class CartaDto {
 		return qtdCartaMsmCaract;
 	}
 
-//	
-//	public static List<CartaDto> converter(List<Carta> cartas) {
-//		
-//		return cartas.stream().map(CartaDto::new).collect(Collectors.toList());
-//		
-//	}
-//	
-	
+
 
 }

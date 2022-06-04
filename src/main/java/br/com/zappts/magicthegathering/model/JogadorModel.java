@@ -1,7 +1,5 @@
 package br.com.zappts.magicthegathering.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,13 +18,14 @@ public class JogadorModel {
 	@Column (nullable = false, length = 15)
 	private String nome;
 	
-	@OneToMany(mappedBy = "jogador")
-	private List<Baralho> baralhos = new ArrayList<>();
+//	@OneToMany(mappedBy = "jogador")
+//	private List<Baralho> baralhos = new ArrayList<>();
+//	
 	
-	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(baralhos, id, nome);
+		return Objects.hash(id, nome);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -38,12 +36,14 @@ public class JogadorModel {
 		if (getClass() != obj.getClass())
 			return false;
 		JogadorModel other = (JogadorModel) obj;
-		return Objects.equals(baralhos, other.baralhos) && Objects.equals(id, other.id)
-				&& Objects.equals(nome, other.nome);
+		return Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
 	}
+	
+	
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -53,14 +53,7 @@ public class JogadorModel {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public List<Baralho> getBaralhos() {
-		return baralhos;
-	}
-	public void setBaralhos(List<Baralho> baralhos) {
-		this.baralhos = baralhos;
-	}
 
-	
 	
 	
 
