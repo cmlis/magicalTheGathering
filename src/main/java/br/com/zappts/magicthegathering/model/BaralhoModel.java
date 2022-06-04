@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Table(name = "TB_BARALHO")
 public class BaralhoModel {
@@ -33,6 +34,7 @@ public class BaralhoModel {
 	public int hashCode() {
 		return Objects.hash(cartas, id, jogador, nome);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,6 +72,10 @@ public class BaralhoModel {
 		this.nome = nome;
 	}
 	
+	public void deleteCarta(CartaModel carta) {
+		
+		this.cartas.remove(carta);
+	}
 	
 	
 	
