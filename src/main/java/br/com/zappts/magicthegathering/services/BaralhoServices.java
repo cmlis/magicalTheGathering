@@ -1,6 +1,7 @@
 package br.com.zappts.magicthegathering.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -25,7 +26,16 @@ public class BaralhoServices {
 	public List<BaralhoModel> findAll() {
 		return baralhoRepository.findAll();
 	}
+	
+	
+	public Optional<BaralhoModel> findById(Long id) {
+		return baralhoRepository.findById(id);
+	}
 
+	@Transactional
+	public void delete(BaralhoModel baralhoModel) {
+		baralhoRepository.delete(baralhoModel);
+	}
 	
 	
 }

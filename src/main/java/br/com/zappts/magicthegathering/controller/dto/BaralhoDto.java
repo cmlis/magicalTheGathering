@@ -5,19 +5,24 @@ import java.util.List;
 
 import br.com.zappts.magicthegathering.model.BaralhoModel;
 import br.com.zappts.magicthegathering.model.CartaModel;
+import br.com.zappts.magicthegathering.model.JogadorModel;
 
 public class BaralhoDto {
 
 	
 	private String nome;
-	private String jogador;
+	private JogadorModel jogador;
 	private List<CartaModel> cartas;
 	
+	
+	public BaralhoDto() {
+		
+	}
 	
 	public BaralhoDto (BaralhoModel baralhoModel) {
 		
 		this.nome = baralhoModel.getNome();
-		this.jogador = baralhoModel.getJogador().getNome();
+		this.jogador = baralhoModel.getJogador();
 		this.cartas = new ArrayList<>();
 		this.cartas.addAll(baralhoModel.getCartas());
 	}
@@ -33,15 +38,14 @@ public class BaralhoDto {
 	}
 
 
-	public String getJogador() {
+	
+	public JogadorModel getJogador() {
 		return jogador;
 	}
 
-
-	public void setJogador(String jogador) {
+	public void setJogador(JogadorModel jogador) {
 		this.jogador = jogador;
 	}
-
 
 	public List<CartaModel> getCartas() {
 		return cartas;

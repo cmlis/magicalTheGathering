@@ -2,9 +2,8 @@
 INSERT INTO TB_JOGADOR (nome) VALUES ('Camila');
 INSERT INTO TB_JOGADOR (nome) VALUES ('Maria');
 
-
--- INSERT INTO BARALHO (nome, jogador_id) VALUES ('Os ++',1);
--- INSERT INTO BARALHO (nome, jogador_id) VALUES ('Os queridinhos',2);
+INSERT INTO TB_BARALHO (nome, jogador_id) VALUES ('Os ++',1);
+INSERT INTO TB_BARALHO (nome, jogador_id) VALUES ('Os queridinhos',2);
 
 
 
@@ -15,8 +14,8 @@ INSERT INTO TB_CARTA(nome,edicao, idioma,is_foil,preco,qtd_carta_msm_caract) VAL
 -- INSERT INTO CARTA(nome,edicao, idioma,is_foil,preco,qtd_carta_msm_caract) VALUES ('Chromanticore','F2022','JAPANESE',0 ,14.20,0);
 -- INSERT INTO CARTA(nome,edicao, idioma,is_foil,preco,qtd_carta_msm_caract) VALUES ('Chromanticore','F2020','ENGLISH',0,20.20,1);
 
--- INSERT INTO baralho_cartas (cartas_id,baralho_id) VALUES (1,1);
--- INSERT INTO baralho_cartas (cartas_id,baralho_id) VALUES (2,1);
--- INSERT INTO baralho_cartas (cartas_id,baralho_id) VALUES (4,1);
+-- INSERT INTO tb_baralho_cartas (cartas_id,baralho_model_id) VALUES (1,1);
+-- INSERT INTO tb_baralho_cartas (cartas_id,baralho_model_id) VALUES (2,1);
+-- INSERT INTO tb_baralho_cartas (cartas_id,baralho_model_id) VALUES (4,1);
 -- INSERT INTO baralho_cartas (cartas_id,baralho_id) VALUES (3,2);
 -- INSERT INTO baralho_cartas (cartas_id,baralho_id) VALUES (5,2);
