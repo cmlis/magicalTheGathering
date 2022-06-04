@@ -1,5 +1,7 @@
 package br.com.zappts.magicthegathering.bean;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public enum TipoIdioma {
 	
 	
@@ -41,6 +43,19 @@ public enum TipoIdioma {
 			
 		}
 		
+	}
+	
+	
+	@JsonCreator
+	public static TipoIdioma getIdiomaFromCode(String valor) {
+		
+		for (TipoIdioma tipo : TipoIdioma.values()) {
+			if (tipo.getTipoIdioma().equals(valor)) {
+				return tipo;
+			}
+		}
+		
+		return null;
 	}
 	
 	

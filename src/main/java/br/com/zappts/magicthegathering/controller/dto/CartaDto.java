@@ -2,41 +2,51 @@ package br.com.zappts.magicthegathering.controller.dto;
 
 import java.math.BigDecimal;
 
-import br.com.zappts.magicthegathering.bean.Carta;
-import br.com.zappts.magicthegathering.bean.TipoIdioma;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import br.com.zappts.magicthegathering.bean.CartaModel;
 
 public class CartaDto {
 	
-	
-	private Long id;
+	@NotBlank
+	@Size(max = 20)
 	private String nome;
+	@NotBlank
+	@Size(max = 15)
 	private String edicao;
-	private TipoIdioma idioma;
+	@NotBlank
+	@Size(max = 15)
+	private String idioma;
+	@NotNull
 	private Boolean isFoil;
+	@NotNull
 	private BigDecimal preco;
 	private int qtdCartaMsmCaract;
 	
 	
 	
-	public CartaDto (Carta carta) {
-		this.id = carta.getId();
+	public CartaDto() {
+		super();
+	}
+	
+	public CartaDto (CartaModel carta) {
 		this.nome = carta.getNome();
 		this.edicao = carta.getEdicao();
 		this.idioma = carta.getIdioma();
-		this.isFoil = carta.isFoil();
+		this.isFoil = carta.getIsFoil();
 		this.preco = carta.getPreco();
 		this.qtdCartaMsmCaract = carta.getQtdCartaMsmCaract();
 	}
-	public Long getId() {
-		return id;
-	}
+
 	public String getNome() {
 		return nome;
 	}
 	public String getEdicao() {
 		return edicao;
 	}
-	public TipoIdioma getIdioma() {
+	public String getIdioma() {
 		return idioma;
 	}
 	public Boolean getIsFoil() {
@@ -49,8 +59,13 @@ public class CartaDto {
 		return qtdCartaMsmCaract;
 	}
 
-	
-	
+//	
+//	public static List<CartaDto> converter(List<Carta> cartas) {
+//		
+//		return cartas.stream().map(CartaDto::new).collect(Collectors.toList());
+//		
+//	}
+//	
 	
 
 }

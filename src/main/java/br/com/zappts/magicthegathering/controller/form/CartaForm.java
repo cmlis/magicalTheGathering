@@ -2,13 +2,13 @@ package br.com.zappts.magicthegathering.controller.form;
 
 import java.math.BigDecimal;
 
-import br.com.zappts.magicthegathering.bean.Carta;
+import br.com.zappts.magicthegathering.bean.CartaModel;
 import br.com.zappts.magicthegathering.bean.TipoIdioma;
 
 
 public class CartaForm {
 
-
+	private Long id;
 	private String nome;
 	private String edicao;
 	private String idioma;
@@ -57,11 +57,18 @@ public class CartaForm {
 	}
 	
 	
-	public Carta converter() {
-		
-		return new Carta(nome,edicao,TipoIdioma.converter(idioma),isFoil,preco,qtdCartaMsmCaract);
-		
+	public Long getId() {
+		return id;
 	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+//	public Carta converter() {
+//		
+//		return new Carta(id,nome,edicao,TipoIdioma.converter(idioma),isFoil,preco,qtdCartaMsmCaract);
+//		
+//	}
 	
 	
 	

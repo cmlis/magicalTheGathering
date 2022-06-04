@@ -1,10 +1,12 @@
 package br.com.zappts.magicthegathering.bean;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,46 +14,40 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
-public class Carta {
+@Table(name = "TB_CARTA")
+public class CartaModel implements Serializable{
 
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column (nullable = false, length = 20)
 	private String nome;
+	@Column (nullable = false, length = 15)
 	private String edicao;
-	@Enumerated(EnumType.STRING)
-	private TipoIdioma idioma = TipoIdioma.PORTUGUES;
-	private Boolean isFoil = false;
+	@Column (nullable = false, length = 15)
+	private String idioma;
+	@Column (nullable = false)
+	private Boolean isFoil;
+	@Column (nullable = false)
 	private BigDecimal preco;
 	private int qtdCartaMsmCaract;
 
 
-	public Carta() {
+	public CartaModel() {
 		
 	}
 
-	
-
-	public Carta(String nome, String edicao, TipoIdioma idioma, Boolean isFoil, BigDecimal preco,
-			int qtdCartaMsmCaract) {
-		this.nome = nome;
-		this.edicao = edicao;
-		this.idioma = idioma;
-		this.isFoil = isFoil;
-		this.preco = preco;
-		this.qtdCartaMsmCaract = qtdCartaMsmCaract;
-	}
-
-
-
-	public Long getId() {
-		return id;
-	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(edicao, id, idioma, isFoil, nome, preco, qtdCartaMsmCaract);
 	}
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -60,11 +56,19 @@ public class Carta {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Carta other = (Carta) obj;
-		return Objects.equals(edicao, other.edicao) && Objects.equals(id, other.id) && idioma == other.idioma
-				&& Objects.equals(isFoil, other.isFoil) && Objects.equals(nome, other.nome)
-				&& Objects.equals(preco, other.preco) && qtdCartaMsmCaract == other.qtdCartaMsmCaract;
+		CartaModel other = (CartaModel) obj;
+		return Objects.equals(edicao, other.edicao) && Objects.equals(id, other.id)
+				&& Objects.equals(idioma, other.idioma) && Objects.equals(isFoil, other.isFoil)
+				&& Objects.equals(nome, other.nome) && Objects.equals(preco, other.preco)
+				&& qtdCartaMsmCaract == other.qtdCartaMsmCaract;
 	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -80,18 +84,27 @@ public class Carta {
 	public void setEdicao(String edicao) {
 		this.edicao = edicao;
 	}
-	public TipoIdioma getIdioma() {
+
+
+	public String getIdioma() {
 		return idioma;
 	}
-	public void setIdioma(TipoIdioma idioma) {
+
+
+	public void setIdioma(String idioma) {
 		this.idioma = idioma;
 	}
-	public Boolean isFoil() {
+
+
+	public Boolean getIsFoil() {
 		return isFoil;
 	}
-	public void setFoil(Boolean isFoil) {
+
+
+	public void setIsFoil(Boolean isFoil) {
 		this.isFoil = isFoil;
 	}
+
 	public BigDecimal getPreco() {
 		return preco;
 	}
@@ -105,10 +118,5 @@ public class Carta {
 		this.qtdCartaMsmCaract = qtdCartaMsmCaract;
 	}
 
-	
-	
-	
-	
-	
 	
 }

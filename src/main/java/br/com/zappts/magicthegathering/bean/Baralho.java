@@ -21,7 +21,7 @@ public class Baralho {
 	@ManyToOne
 	private Jogador jogador;
 	@OneToMany
-	private List<Carta> cartas = new ArrayList<>();
+	private List<CartaModel> cartas = new ArrayList<>();
 	
 	
 	
@@ -53,10 +53,10 @@ public class Baralho {
 	public void setJogador(Jogador jogador) {
 		this.jogador = jogador;
 	}
-	public List<Carta> getCartas() {
+	public List<CartaModel> getCartas() {
 		return cartas;
 	}
-	public void setCartas(List<Carta> cartas) {
+	public void setCartas(List<CartaModel> cartas) {
 		this.cartas = cartas;
 	}
 	public String getNome() {
